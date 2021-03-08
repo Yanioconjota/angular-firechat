@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "firechat-cfd71": {
+      "hosting": {
+        "firechat": [
+          "firechat-cfd71"
+        ]
+      }
+    }
+  }
+}
