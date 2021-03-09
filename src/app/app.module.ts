@@ -7,10 +7,12 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
