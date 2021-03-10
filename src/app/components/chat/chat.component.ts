@@ -18,7 +18,7 @@ export class ChatComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  enviar_mensaje(mensaje: string) {
+  enviar_mensaje() {
     console.log(this.mensaje);
     if (this.mensaje.length === 0) {
       return;
