@@ -38,8 +38,12 @@ export class ChatService {
   login(proveedor: string) {
     if (proveedor === 'google') {
       this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-    } else {
+    } if (proveedor === 'github') {
       this.auth.signInWithPopup(new firebase.auth.GithubAuthProvider());
+    } if (proveedor === 'twitter') {
+      this.auth.signInWithPopup(new firebase.auth.TwitterAuthProvider());
+    } else {
+      this.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
     }
   }
   logout() {
