@@ -12,21 +12,9 @@
     </button>
   </div>
   <app-login *ngIf="!_cs.usuario.uid"></app-login>
-  <div class="col-md-4 col-12 text-center mx-auto" *ngIf="_cs.usuario.uid">
-    <p>Bienvenido: 
-    </p>
-    <div class="card card-user">
-      <img [src]="_cs.usuario.img"
-           [alt]="_cs.usuario.nombre"
-           class="card-img-user">
-      <div class="card-body">
-        <p class="card-text">
-          {{ _cs.usuario.nombre }}
-        </p>
-      </div>
-    </div>
-  </div>
-  <!-- <div class="chat-window">
+  
+  <div class="chat-window"
+       *ngIf="_cs.usuario.uid">
     <app-chat></app-chat>
-  </div> -->
+  </div>
 </div>
