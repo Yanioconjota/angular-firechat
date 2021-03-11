@@ -22,13 +22,25 @@ export class ChatService {
       if (!user) {
         return;
       }
-      this.usuario.nombre = user.displayName;
+      if (user.displayName === null) {
+        this.usuario.nombre = user.providerData[0].email;
+      } else {
+        this.usuario.nombre = user.displayName;
+      }
+      if (user.photoURL !== null) {
+        this.usuario.img = user.photoURL;
+      }
       this.usuario.uid = user.uid;
+      console.log(this.usuario)
     })
   }
 
   login(proveedor: string) {
-    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    if (proveedor === 'google') {
+      this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    } else {
+      this.auth.signInWithPopup(new firebase.auth.GithubAuthProvider());
+    }
   }
   logout() {
     this.auth.signOut();

@@ -15,11 +15,9 @@ export class AppComponent {
   constructor(db: AngularFirestore,
               public _cs: ChatService) {
     this.chats = db.collection('chats').valueChanges();
-    console.log(this._cs.usuario)
   }
 
   logout(){
-    
     this._cs.logout();
   }
 }
