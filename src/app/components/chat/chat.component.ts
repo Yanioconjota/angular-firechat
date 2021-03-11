@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ChatService } from 'src/app/providers/chat.service';
 
 @Component({
@@ -10,6 +10,15 @@ import { ChatService } from 'src/app/providers/chat.service';
 export class ChatComponent implements OnInit {
   mensaje: string = "";
   elemento: any;
+  scrHeight: any;
+  scrWidth: any;
+  
+  @HostListener('window:resize', ['$event'])
+  getScreenSize(event?) {
+    this.scrHeight = window.innerHeight / 2;
+    this.scrWidth = window.innerWidth;
+    console.log(this.scrHeight, this.scrWidth);
+  }
 
   constructor(public _cs: ChatService) {
     this._cs.cargarMensajes()
@@ -22,6 +31,7 @@ export class ChatComponent implements OnInit {
 
   ngOnInit(): void {
     this.elemento = document.getElementById('app-mensajes');
+    this.getScreenSize();
   }
 
   enviar_mensaje() {
